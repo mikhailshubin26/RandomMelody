@@ -10,26 +10,27 @@ import pygame
 pygame.init()
 
 lst_tune = ["С", "Cm", "C#", "C#m", "D", "Dm", "D#", "D#m", "E", "Em", "F", "Fm", "F#", "F#m", "G", "Gm", "G#", "G#m", "A",
-       "Am", "A#", "A#m", "B", "Bm", "B#", "B#m", "Random"]
+       "Am", "A#", "A#m", "B", "Bm", "Random"]
 
-lst_instr = ['Piano', 'Guitar', 'Brass']
+lst_instr = ['Piano', 'Guitar', 'Brass', 'Bass']
 
-tune = input("Выберите тональность:\n"
+tune = input("Сhoose the tune:\n"
              "С, Cm, C#, C#m,\n"
              "D, Dm, D#, D#m,\n"
              "E, Em, F, Fm,\n"
              "F#, F#m, G, Gm,\n"
              "G#, G#m, A, Am,\n"
              "A#, A#m, B, Bm,\n"
-             "B#, B#m, Random\n").title()
+             "Random\n").title()
 
-lenght = int(input("Введите длину мелодии в нотах (8; 16; 32): "))
+lenght = int(input("Choose the melody lenght in notes (8; 16; 32): "))
 
-instr = input("Выбери инструмент: Piano, Guitar, Brass, Random:    ").title()
+instr = input("Выбери инструмент: Piano, Guitar, Brass, Bass, Random:    ").title()
 
 if tune == 'Random':
     tune = random.randint(0, len(lst_tune) - 1)
     tune = lst_tune[tune]
+    print(tune)
 
 if instr == 'Random':
     instr = random.randint(0, len(lst_instr) - 1)
@@ -42,7 +43,7 @@ melody = []
 for i in range(lenght):
     melody.append(notes[random.randint(0, len(notes) - 1)])
 
-print(tune)
+print(f"{tune}; {instr}")
 print(melody)
 
 for elem in melody:
@@ -54,5 +55,7 @@ for elem in melody:
         sleep(0.2)
     if instr == 'Brass':
         sleep(0.25)
+    if instr == 'Bass':
+        sleep(0.5)
 
 pygame.quit

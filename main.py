@@ -1,17 +1,18 @@
 import random
-import time
+import os
+import sys
 from note_list import note_list
-from playsound import playsound
-from threading import *
 from time import time, sleep
 import pygame
+
+
 
 pygame.init()
 
 lst_tune = ["С", "Cm", "C#", "C#m", "D", "Dm", "D#", "D#m", "E", "Em", "F", "Fm", "F#", "F#m", "G", "Gm", "G#", "G#m", "A",
        "Am", "A#", "A#m", "B", "Bm", "B#", "B#m", "Random"]
 
-lst_instr = ['Piano', 'Guitar']
+lst_instr = ['Piano', 'Guitar', 'Brass']
 
 tune = input("Выберите тональность:\n"
              "С, Cm, C#, C#m,\n"
@@ -20,11 +21,11 @@ tune = input("Выберите тональность:\n"
              "F#, F#m, G, Gm,\n"
              "G#, G#m, A, Am,\n"
              "A#, A#m, B, Bm,\n"
-             "B#, B#m, Random\n")
+             "B#, B#m, Random\n").title()
 
 lenght = int(input("Введите длину мелодии в нотах (8; 16; 32): "))
 
-instr = input("Выбери инструмент: Piano, Guitar, Random:    ")
+instr = input("Выбери инструмент: Piano, Guitar, Brass, Random:    ").title()
 
 if tune == 'Random':
     tune = random.randint(0, len(lst_tune) - 1)
@@ -45,12 +46,13 @@ print(tune)
 print(melody)
 
 for elem in melody:
-    sound = pygame.mixer.Sound(f'{instr}{elem}.wav')
+    sound = pygame.mixer.Sound(f'sounds/{instr}/{instr}{elem}.wav')
     pygame.mixer.Sound.play(sound)
     if instr == 'Piano':
         sleep(0.3)
     if instr == 'Guitar':
         sleep(0.2)
-    # playsound(f"{instr}{elem}.mp3")
+    if instr == 'Brass':
+        sleep(0.25)
 
 pygame.quit

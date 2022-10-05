@@ -9,6 +9,8 @@ import pygame
 
 pygame.init()
 
+mode = input("Choose the mode (Loop, Usual):    ")
+
 lst_tune = ["С", "Cm", "C#", "C#m", "D", "Dm", "D#", "D#m", "E", "Em", "F", "Fm", "F#", "F#m", "G", "Gm", "G#", "G#m", "A",
        "Am", "A#", "A#m", "B", "Bm", "Random"]
 
@@ -23,7 +25,8 @@ tune = input("Сhoose the tune:\n"
              "A#, A#m, B, Bm,\n"
              "Random\n").title()
 
-lenght = int(input("Choose the melody lenght in notes (8; 16; 32): "))
+
+lenght = int(input("Choose the melody lenght in notes (8; 16; 32,64, 128, 256): "))
 
 instr = input("Выбери инструмент: Piano, Guitar, Brass, Bass, Random:    ").title()
 
@@ -40,22 +43,41 @@ notes = []
 notes = note_list(tune)
 
 melody = []
-for i in range(lenght):
-    melody.append(notes[random.randint(0, len(notes) - 1)])
+if lenght <= 16 or mode == 'Usual':
+    for i in range(lenght):
+        melody.append(notes[random.randint(0, len(notes) - 1)])
+else:
+    for i in range(16):
+        melody.append(notes[random.randint(0, len(notes) - 1)])
 
 print(f"{tune}; {instr}")
 print(melody)
 
-for elem in melody:
-    sound = pygame.mixer.Sound(f'sounds/{instr}/{instr}{elem}.wav')
-    pygame.mixer.Sound.play(sound)
-    if instr == 'Piano':
-        sleep(0.3)
-    if instr == 'Guitar':
-        sleep(0.2)
-    if instr == 'Brass':
-        sleep(0.25)
-    if instr == 'Bass':
-        sleep(0.5)
+if lenght <= 16 or mode == 'Usual':
+    for elem in melody:
+        sound = pygame.mixer.Sound(f'sounds/{instr}/{instr}{elem}.wav')
+        pygame.mixer.Sound.play(sound)
+        if instr == 'Piano':
+            sleep(0.3)
+        if instr == 'Guitar':
+            sleep(0.2)
+        if instr == 'Brass':
+            sleep(0.25)
+        if instr == 'Bass':
+            sleep(0.5)
+
+else:
+    for i in range(lenght // 16):
+        for elem in melody:
+            sound = pygame.mixer.Sound(f'sounds/{instr}/{instr}{elem}.wav')
+            pygame.mixer.Sound.play(sound)
+            if instr == 'Piano':
+                sleep(0.3)
+            if instr == 'Guitar':
+                sleep(0.2)
+            if instr == 'Brass':
+                sleep(0.25)
+            if instr == 'Bass':
+                sleep(0.5)
 
 pygame.quit

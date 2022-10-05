@@ -4,12 +4,13 @@ import sys
 from note_list import note_list
 from time import time, sleep
 import pygame
+from play import play
 
 
 
 pygame.init()
 
-mode = input("Choose the mode (Loop, Usual):    ")
+mode = input("Choose the mode (Loop, Usual):    ").title()
 
 lst_tune = ["С", "Cm", "C#", "C#m", "D", "Dm", "D#", "D#m", "E", "Em", "F", "Fm", "F#", "F#m", "G", "Gm", "G#", "G#m", "A",
        "Am", "A#", "A#m", "B", "Bm", "Random"]
@@ -26,7 +27,7 @@ tune = input("Сhoose the tune:\n"
              "Random\n").title()
 
 
-lenght = int(input("Choose the melody lenght in notes (8; 16; 32,64, 128, 256): "))
+lenght = int(input("Choose the melody lenght in notes (8; 16; 32, 64, 128, 256): "))
 
 instr = input("Выбери инструмент: Piano, Guitar, Brass, Bass, Random:    ").title()
 
@@ -55,29 +56,11 @@ print(melody)
 
 if lenght <= 16 or mode == 'Usual':
     for elem in melody:
-        sound = pygame.mixer.Sound(f'sounds/{instr}/{instr}{elem}.wav')
-        pygame.mixer.Sound.play(sound)
-        if instr == 'Piano':
-            sleep(0.3)
-        if instr == 'Guitar':
-            sleep(0.2)
-        if instr == 'Brass':
-            sleep(0.25)
-        if instr == 'Bass':
-            sleep(0.5)
+        play(instr, elem)
 
 else:
     for i in range(lenght // 16):
         for elem in melody:
-            sound = pygame.mixer.Sound(f'sounds/{instr}/{instr}{elem}.wav')
-            pygame.mixer.Sound.play(sound)
-            if instr == 'Piano':
-                sleep(0.3)
-            if instr == 'Guitar':
-                sleep(0.2)
-            if instr == 'Brass':
-                sleep(0.25)
-            if instr == 'Bass':
-                sleep(0.5)
+            play(instr, elem)
 
 pygame.quit

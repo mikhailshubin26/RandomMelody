@@ -3,10 +3,10 @@ def note_list(tune):
         notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 
     if tune == 'Cm':
-        notes = ['C', 'D', 'D#', 'F', 'G', 'G#', 'B']
+        notes = ['C', 'D', 'D#', 'F', 'G', 'G#', 'B'] # Correct
 
     if tune == 'C#':
-        notes = ['C', 'C#', 'D#', 'F', 'F#', 'G#', 'A#']
+        notes = ['C', 'C#', 'D#', 'F', 'F#', 'G#', 'A#'] # Correct
 
     if tune == 'C#m':
         notes = ['C', 'C#', 'D#', 'E', 'F#', 'G#', 'A']
@@ -69,6 +69,6 @@ def note_list(tune):
         notes = ['C#', 'D#', 'E', 'F#', 'G#', 'A#', 'B']
 
     if tune == 'Bm':
-        notes = ['C', 'C#', 'E', 'F', 'G', 'G#', 'A#']
+        notes = ['C', 'C#', 'E', 'F', 'G', 'G#', 'A#'] # Correct
 
     return notes

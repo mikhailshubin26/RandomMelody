@@ -36,7 +36,7 @@ def note_list(tune):
         notes = ['C', 'C#', 'E', 'F', 'G', 'G#', 'A#']
 
     if tune == 'F#':
-        notes = ['C#', 'D#', 'F', 'F#', 'G#', 'A#', 'B']
+        notes = ['C#', 'D#', 'F', 'F#', 'G#', 'A#', 'B'] # Correct
 
     if tune == 'F#m':
         notes = ['C#', 'D', 'F', 'F#', 'G#', 'A', 'B']

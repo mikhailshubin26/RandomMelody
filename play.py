@@ -1,4 +1,5 @@
 import pygame
+
 from time import sleep
 
 def play(instr, elem):

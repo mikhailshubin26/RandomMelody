@@ -72,3 +72,4 @@ def note_list(tune):
         notes = ['C', 'C#', 'E', 'F', 'G', 'G#', 'A#'] # Correct
 
     return notes
+

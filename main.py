@@ -1,12 +1,10 @@
 import random
-import os
-import sys
+
 
 from note_list import note_list
 from play import play
 from save import save
 
-from time import time, sleep
 import pygame
 
 
@@ -74,6 +72,7 @@ while True:
         print('Goodbye')
         break
     elif cont == 'Save':
-        save(tune, lenght, melody, instr)
+        name = input("Name:     ")
+        save(name, tune, lenght, melody, instr)
 
 pygame.quit

@@ -4,6 +4,7 @@ import random
 from note_list import note_list
 from play import play
 from save import save
+from open import open
 
 import pygame
 
@@ -12,6 +13,10 @@ import pygame
 
 pygame.init()
 while True:
+    start = input('What do you want to do (Create, Open):   ').title()
+    if start == "Open":
+        open()
+
     mode = input("Choose the mode (Loop, Usual):    ").title()
 
     lst_tune = ["С", "Cm", "C#", "C#m", "D", "Dm", "D#", "D#m", "E", "Em", "F", "Fm", "F#", "F#m", "G", "Gm", "G#", "G#m", "A",

@@ -1,5 +1,6 @@
 import sqlite3
 from datetime import datetime
+from time import sleep
 
 def save(name, tune, lenght, melody, instr):
     mel = ''
@@ -19,3 +20,7 @@ def save(name, tune, lenght, melody, instr):
     con.commit()
     cur.close()
     con.close()
+    for i in range(0, 101):
+        print(f'{i}%')
+        sleep(0.01)
+

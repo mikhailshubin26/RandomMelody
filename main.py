@@ -8,9 +8,6 @@ from open import open
 
 import pygame
 
-
-
-
 pygame.init()
 while True:
     start = input('What do you want to do (Create, Open):   ').title()

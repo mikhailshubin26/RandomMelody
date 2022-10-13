@@ -19,7 +19,7 @@ def open():
                 break
             else:
                 continue
-        notess = notess.split(';')
+        notess = notess.split('; ')
         print(notess)
         for elem in notess:
             if elem != notess[-1]:

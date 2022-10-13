@@ -5,7 +5,7 @@ from time import sleep
 def save(name, tune, lenght, melody, instr):
     mel = ''
     for e in melody:
-        mel += f'{e};'
+        mel += f'{e}; '
 
     con = sqlite3.connect('records.db')
     cur = con.cursor()

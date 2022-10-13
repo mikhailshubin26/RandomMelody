@@ -8,7 +8,7 @@ def open():
     for elem in result:
         print(elem)
 
-    cl = input('Type Anything to close:     ').title()
+    cl = input('Type ID to play or type something else to close:     ').title()
     if cl.isdigit():
         cl = int(cl)
         for elem in result:
@@ -19,7 +19,7 @@ def open():
                 break
             else:
                 continue
-        notess = notess.split(';')
+        notess = notess.split('; ')
         print(notess)
         for elem in notess:
             if elem != notess[-1]:

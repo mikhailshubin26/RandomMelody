@@ -17,7 +17,11 @@ while True:
     mode = input("Choose the mode (Loop, Usual):    ").title()
 
     lst_tune = ["С", "Cm", "C#", "C#m", "D", "Dm", "D#", "D#m", "E", "Em", "F", "Fm", "F#", "F#m", "G", "Gm", "G#", "G#m", "A",
-           "Am", "A#", "A#m", "B", "Bm", "Random"]
+           "Am", "A#", "A#m", "B", "Bm"]
+
+    min_lst_tune = ["Cm", "C#m", "Dm", "D#m", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "A#m", "Bm"]
+
+    maj_lst_tune = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 
     lst_instr = ['Piano', 'Guitar', 'Brass', 'Bass']
 
@@ -28,7 +32,7 @@ while True:
                  "F#, F#m, G, Gm,\n"
                  "G#, G#m, A, Am,\n"
                  "A#, A#m, B, Bm,\n"
-                 "Random\n").title()
+                 "Random, Minor, Major\n").title()
 
 
     lenght = int(input("Choose the melody lenght in notes (8; 16; 32, 64, 128, 256): "))
@@ -36,8 +40,18 @@ while True:
     instr = input("Выбери инструмент: Piano, Guitar, Brass, Bass, Random:    ").title()
 
     if tune == 'Random':
-        tune = random.randint(0, len(lst_tune) - 1)
+        tune = random.randint(0, 24)
         tune = lst_tune[tune]
+        print(tune)
+
+    if tune == 'Minor':
+        tune = random.randint(0, 12)
+        tune = min_lst_tune[tune]
+        print(tune)
+
+    if tune == 'Major':
+        tune = random.randint(0, 12)
+        tune = maj_lst_tune[tune]
         print(tune)
 
     if instr == 'Random':
